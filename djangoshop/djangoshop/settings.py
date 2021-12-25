@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'feedback',
 ]
 
 MIDDLEWARE = [
@@ -89,15 +90,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-
-# Настройки почтового сервера
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'mymail@gmail.com'
-EMAIL_HOST_PASSWORD = 'mypassword'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = 'mymail@gmail.com'
 
 
 # Password validation

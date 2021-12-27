@@ -1,11 +1,15 @@
 .body_style{
+    background-image:url(https://images.wallpaperscraft.ru/image/single/pejzazh_gory_solntse_140434_3840x2400.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .header_style{
-    background-color: silver;
+    background-color: #b6fcc4;
     display: flex;
+    justify-content:space-between;
     border-radius: 30px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .auth_info{
@@ -23,4 +27,87 @@
 .cart{
     flex-direction: column;
     display: flex;
+}
+
+.logo{
+    margin-left:10px;
+	padding: 1.4rem 4.2rem;
+	padding-right: 3.1rem;
+	font-size: 1.4rem;
+	color: black;
+	letter-spacing: 1.1rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	user-select: none;
+	text-decoration:none;
+
+}
+
+.logo:hover{
+    color:#fff;
+}
+
+.auth_buttons{
+    display:flex;
+}
+
+.auth_but{
+    margin-left:10px;
+	padding: 1.4rem 4.2rem;
+	padding-right: 3.1rem;
+	font-size: 1.4rem;
+	color: black;
+	letter-spacing: 1.1rem;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.auth_but a{
+    color:black;
+    text-decoration:none;
+}
+.auth_but a:hover{
+    color:#fff;
+}
+
+.cart{
+    margin-left:10px;
+	padding: 1.4rem 4.2rem;
+	padding-right: 3.1rem;
+	font-size: 15px;
+	color: black;
+	letter-spacing: 0.6rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.categ_title{
+    color:black;
+}
+
+.product-list{
+    margin-top:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:row;
+    flex-wrap:wrap;
+}
+
+.item{
+    margin-left:30px;
+    margin-top:15px;
+    display:flex;
+    flex-direction:column;
+}
+.content_main{
+    margin-top:50px;
+}
+
+#sidebar {
+    cursor:pointer;
+    color: #fff;
+    width:100px;
+    height:100px;
 }

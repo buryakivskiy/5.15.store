@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': '5.15.store',
         'USER': 'postgres',
-        'PASSWORD': '12345678',
+        'PASSWORD': '123',
         'HOST': 'localhost',
         'PORT': '5432',
     }

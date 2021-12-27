@@ -1,3 +1,26 @@
+.body_style{
+}
+
 .header_style{
     background-color: silver;
+    display: flex;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.auth_info{
+    padding: 10px;
+    background-color: blue;
+    border-radius: 30px;
+}
+
+.auth{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 75%;
+}
+
+.cart{
+    flex-direction: column;
+    display: flex;
 }

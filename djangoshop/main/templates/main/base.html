@@ -5,23 +5,15 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../static/css/base.css">
         <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-        <title>{% block title %}My shop{% endblock %}</title>
+        <title>{% block title %}5.15.store{% endblock %}</title>
     </head>
  <body class="body_style">
     <div class="container">
         <div id="header" class="header_style">
-            <a href="/" class="logo">My shop</a>
+            <a href="/" class="logo">5.15.store</a>
             <div class="cart"> 
                 {% with total_items=cart|length %}
-                {% if cart|length > 0 %}
-                    Your cart:
-                    <a href="{% url "cart:cart_detail" %}">
-                    {{ total_items }} item{{ total_items|pluralize }},
-                    ${{ cart.get_total_price }}
-                </a>
-                {% else %}
-                Your cart is empty.
-                {% endif %}
+                    <a href="{% url "cart:cart_detail" %}">Cart</a>
                 {% endwith %}
             </div>
             <div class="auth_container">

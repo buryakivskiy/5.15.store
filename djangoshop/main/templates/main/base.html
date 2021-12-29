@@ -3,43 +3,40 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>{% block title %}My shop{% endblock %}</title>
         <link rel="stylesheet" href="../static/css/base.css">
         <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+        <title>{% block title %}My shop{% endblock %}</title>
     </head>
  <body class="body_style">
- <div class="container">
-    <div id="header" class="header_style">
-        <a href="/" class="logo">My shop</a>
-        <div class="cart"> {% with total_items=cart|length %}
-            {% if cart|length > 0 %}
-            Your cart:
-            <a href="{% url "cart:cart_detail" %}">
-            {{ total_items }} item{{ total_items|pluralize }},
-            ${{ cart.get_total_price }}
-            </a>
-            {% else %}
-            Your cart is empty.
-            {% endif %}
-            {% endwith %}
+    <div class="container">
+        <div id="header" class="header_style">
+            <a href="/" class="logo">My shop</a>
+            <div class="cart"> 
+                {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    Your cart:
+                    <a href="{% url "cart:cart_detail" %}">
+                    {{ total_items }} item{{ total_items|pluralize }},
+                    ${{ cart.get_total_price }}
+                </a>
+                {% else %}
+                Your cart is empty.
+                {% endif %}
+                {% endwith %}
+            </div>
+            <div class="auth_container">
+                {% if request.user.is_authenticated %}
+                    {{user.username}}
+                    <a href="{% url "account:logout" %}">Log out</a>
+                {% else %}
+                    <a href="{% url "account:signup" %}">Sign up</a>
+                    <a href="{% url "account:login" %}">Login</a>
+                {% endif %}
+            </div>
         </div>
-        {% if request.user.is_authenticated %}
-        {{user.username}}
-        <a href="{% url "account:logout" %}">
-            Log out
-        </a>
-        {% else %}
-        <a href="{% url "account:signup" %}">
-            Sign up
-        </a>
-        <a href="{% url "account:login" %}">
-            Log in
-        </a>
-        {% endif %}
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
     </div>
-    <div id="content">
-        {% block content %}{% endblock %}
-    </div>
- </div>
  </body>
 </html>

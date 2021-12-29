@@ -3,8 +3,8 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../static/css/base.css">
-        <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../static/css/base.css">
+        <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
         <title>{% block title %}5.15.store{% endblock %}</title>
     </head>
  <body class="body_style">
@@ -20,13 +20,9 @@
                 </div>
             </div>
             <a href="/" class="logo">5.15.store</a>
-            <div class="cart"> 
-                {% with total_items=cart|length %}
-                    <a href="{% url "cart:cart_detail" %}">
-                        <img class="cart_logo" src="https://cdn-icons-png.flaticon.com/512/57/57572.png"/>
-                    </a>
-                {% endwith %}
-            </div>
+            <a href="{% url "cart:cart_detail" %}">
+                <img class="cart_logo" src="https://cdn-icons-png.flaticon.com/512/57/57572.png"/>
+            </a>
             <div class="auth_buttons">
                 {% if request.user.is_authenticated %}
                     <p class="user_style">{{user.username}}</p>

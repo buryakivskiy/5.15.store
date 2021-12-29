@@ -4,10 +4,10 @@
 
 .header_style{
     background-color: #b6fcc4;
-    display: flex;
-    justify-content:space-between;
     border-radius: 30px;
     padding: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .auth_info{
@@ -25,6 +25,12 @@
 .cart{
     flex-direction: column;
     display: flex;
+}
+
+.cart_logo{
+    padding: 1.4rem 4.2rem;
+    width: 50px;
+    height: 50px;
 }
 
 .logo{
@@ -47,17 +53,19 @@
 
 .auth_buttons{
     display:flex;
+    align-items:center;
+    flex-direction:row;
 }
 
 .auth_but{
-    margin-left:10px;
-	padding: 1.4rem 4.2rem;
-	padding-right: 3.1rem;
-	font-size: 1.4rem;
-	color: black;
-	letter-spacing: 1.1rem;
-	text-transform: uppercase;
-	cursor: pointer;
+    margin-left: 30px;
+  font-size: 1.2rem;
+  color: black;
+  letter-spacing: 0.7rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 4px;
 }
 
 .auth_but a{
@@ -66,6 +74,10 @@
 }
 .auth_but a:hover{
     color:#fff;
+}
+.auth_but:hover{
+    color:#fff;
+    border: 1px solid #fff;
 }
 
 .categ_title{
@@ -96,4 +108,62 @@
     color: #fff;
     width:100px;
     height:100px;
+}
+
+.dropbtn {
+    background-color:cadetblue;
+    border-radius: 30px;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.pagination {
+    justify-content: center;
+    display: flex;
+    margin-top: 30px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
 }

@@ -4,19 +4,6 @@
 {% if category %}{{ category.name }}{% else %}Products{% endif %}
 {% endblock %}
 {% block content %}
-  <div id="sidebar">
-  <h3>Categories</h3>
-  <ul>
-    <li {% if not category %}class="selected"{% endif %}>
-      <a href="{% url "main:product_list" %}">All</a>
-    </li>
-    {% for c in categories %}
-      <li {% if category.slug == c.slug %}class="selected" {% endif %}>
-        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-  </div>
 <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
   <div id="main" class="product-list">
     {% for product in products %}
@@ -30,22 +17,25 @@
       </div>
     {% endfor %}
  </div>
- <div class="pagination">
-  <span class="step-links">
-      {% if products.has_previous %}
-          <a href="?page=1">&laquo; first</a>
-          <a href="?page={{ products.previous_page_number }}">previous</a>
-      {% endif %}
 
-      <span class="current">
-          Page {{ products.number }} of {{ products.paginator.num_pages }}.
-      </span>
-
-      {% if products.has_next %}
-          <a href="?page={{ products.next_page_number }}">next</a>
-          <a href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
-      {% endif %}
-  </span>
+ <div class="pagination col-md-12">
+    {% if products.has_previous %}
+        <a href="?page={{products.previous_page_number}}"> << </a>
+    {% else %}
+        <a href="?page=1"> << </a>
+    {% endif %}
+    {% for index in products.paginator.page_range %}
+        {% if products.number == index %}
+            <a class="active" href="?page={{index}}"> {{index}} </a>
+        {% else %}
+            <a href="?page={{index}}"> {{index}} </a>
+        {% endif %}
+    {% endfor %}
+    {% if products.has_next %}
+        <a href="?page={{products.next_page_number}}"> >> </a>
+    {% else %}
+        <a href="?page={{products.number}}"> >> </a>
+    {% endif %}
 </div>
 
 

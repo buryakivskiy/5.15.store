@@ -10,19 +10,36 @@
  <body class="body_style">
     <div class="container">
         <div id="header" class="header_style">
+            <div class="dropdown">
+                <button class="dropbtn">Categories</button>
+                <div class="dropdown-content">
+                    <a href="{% url "main:product_list" %}">все</a>
+                    {% for c in categories %}
+                          <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
             <a href="/" class="logo">5.15.store</a>
             <div class="cart"> 
                 {% with total_items=cart|length %}
-                    <a href="{% url "cart:cart_detail" %}">Cart</a>
+                    <a href="{% url "cart:cart_detail" %}">
+                        <img class="cart_logo" src="https://cdn-icons-png.flaticon.com/512/57/57572.png"/>
+                    </a>
                 {% endwith %}
             </div>
-            <div class="auth_container">
+            <div class="auth_buttons">
                 {% if request.user.is_authenticated %}
-                    {{user.username}}
-                    <a href="{% url "account:logout" %}">Log out</a>
+                    <p class="user_style">{{user.username}}</p>
+                    <div class="auth_but">
+                        <a href="{% url "account:logout" %}">Log out</a>
+                    </div>
                 {% else %}
-                    <a href="{% url "account:signup" %}">Sign up</a>
-                    <a href="{% url "account:login" %}">Login</a>
+                    <div class="auth_but">
+                        <a href="{% url "account:signup" %}">Sign up</a>
+                    </div>
+                    <div class="auth_but">
+                        <a href="{% url "account:login" %}">Log in</a>
+                    </div>
                 {% endif %}
             </div>
         </div>

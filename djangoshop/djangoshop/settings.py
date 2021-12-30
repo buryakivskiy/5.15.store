@@ -14,12 +14,8 @@ from pathlib import Path
 import os
 import dj_database_url
 import django_heroku
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
 
 
 # Quick-start development settings - unsuitable for production
@@ -59,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'djangoshop.urls'
@@ -91,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': '5.15.store',
         'USER': 'postgres',
-        'PASSWORD': '12345678',
+        'PASSWORD': '123',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -154,3 +151,5 @@ EMAIL_PORT = 587
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+# Activate Django-Heroku.
+django_heroku.settings(locals())
